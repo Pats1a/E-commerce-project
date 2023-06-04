@@ -7,18 +7,25 @@ interface Products {
   id: number;
   title: string;
   images: string[];
-  price: string;
+  price: number;
 }
 
 function Products() { 
   const [item, setData] = useState<Products[]>([]);
-  const pageragac = 15;
-  const currentpage = 21;
+  const [currentpage, setCurrentPage] = useState(45);
+  const pagenumb = 15;
 
   useEffect(() => {
-    ProductsApi(pageragac, currentpage)
+    ProductsApi(pagenumb, currentpage)
       .then((response) => setData(response.data.products));
-  }, []);
+  }, [currentpage]);
+
+  const showMoreProducts = () => {
+    const newCurrentPage = currentpage + 5;
+    ProductsApi(pagenumb, newCurrentPage)
+      .then((response) => setData(response.data.products));
+    setCurrentPage(newCurrentPage);
+  };
 
   return (
     <div className='product-field'>
@@ -31,11 +38,15 @@ function Products() {
       <div className="all-product">
         {item.map((product) => (
           <div className='every-product' key={product.id}>
-            <img src={product.images[0]} alt="" />
-            <p>{product.title}</p>
-            <p>{product.price} $</p>
+            <img className='product-image' src={product.images[0]} alt="" />
+            <p className='product-title'>{product.title}</p>
+            <p className='product-price'>{Math.round(product.price)} ₾</p>
+            <button className='product-button'>კალათაში დამატება</button>
           </div>
         ))}
+      </div>
+      <div className='show-more'>
+        <button onClick={showMoreProducts} className='show-more-button'>მეტის ნახვა <span>🡳</span></button>
       </div>
     </div>
   );

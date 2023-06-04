@@ -1,3 +1,9 @@
-export function shoppingCart(){
-    return <h1>cart</h1>
+import Navbar from "../navbar"
+
+
+export function ShoppingCart(){
+
+    return (
+        <Navbar/>
+    )
 }

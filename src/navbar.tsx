@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import zoomerlogo from './images/zoommerlogo.png'
 import profileIcon from './images/profile-icon.png'
-import shoppingCart from './images/shopping-cart.png'
+import ShoppingCart from './images/shopping-cart.png'
 import searchIcon from './images/search-icon.png'
 import './App.css'
+
 
 export default function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -31,7 +33,7 @@ export default function Navbar() {
     <nav className="zoommer-navigation">
       <ul className='nav-list'>
         <li>
-          <a href="/home"><img src={zoomerlogo} alt="zoomer logo" className='zoomer-logo' /></a>
+          <a href="/"><img src={zoomerlogo} alt="zoomer logo" className='zoomer-logo' /></a>
           <form className='searching-system' action="">
             <input className='search-bar' type="text" placeholder='ძიება...' />
             <button className='search-button'><img src={searchIcon} alt="Search" /></button>
@@ -59,7 +61,7 @@ export default function Navbar() {
               )}
             </div>
           </div>
-          <NavLink className='cart-link' to="/cart"><img className='cart-image' src={shoppingCart} alt="Cart" />0 ₾</NavLink>
+          <Link className='cart-link' to="/Cart"><img className='cart-image' src={ShoppingCart} alt="Cart" />0 ₾</Link>
         </li>
       </ul>
     </nav>
