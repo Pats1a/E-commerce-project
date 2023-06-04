@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const ProductsApi = (pageragac: number, currentpage: number) => {
+const ProductsApi = (pagenumb: number, currentpage: number) => {
     
 
     return axios.post('http://localhost:8080/products', {
-        keyword:"", page_number: pageragac , page_size: currentpage
+        keyword:"", page_number: pagenumb , page_size: currentpage
     })
 }
 
