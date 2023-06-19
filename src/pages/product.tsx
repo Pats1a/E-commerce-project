@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../navbar';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 interface Product {
@@ -35,10 +36,17 @@ export default function ProductPage() {
     setShowFullDescription(!showFullDescription);
   };
 
+  const handleAddToCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    const item = { id: product?.id, title: product?.title, image: product?.images[0], price: product?.price };
+    cartItems.push(item);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  };
+
+
   if (!product) {
     return <div>Loading...</div>;
   }
-
   return (
     <>
       <Navbar />
@@ -53,7 +61,7 @@ export default function ProductPage() {
               <div className="window-info-payment">
                 <div className="window-payment">
                   <p className="window-price">{Math.round(product.price)} <span>₾</span></p>
-                  <button className="window-btn">კალათაში დამატება</button>
+                  <button className="window-btn" onClick={handleAddToCart}>კალათაში დამატება</button>
                 </div>
                 <div className="short-desc">
                   <p className="short-desc-text">ბრენდი: {product.brand}</p>
@@ -73,6 +81,9 @@ export default function ProductPage() {
           </button>
         </div>
       </div>
+        <footer className='footer'>
+            <Link to='/contact' className='contact-link'>Contact</Link>
+        </footer>
     </>
   );
 }
