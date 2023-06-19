@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import zoomerlogo from './images/zoommerlogo.png'
 import profileIcon from './images/profile-icon.png'
@@ -7,6 +6,10 @@ import ShoppingCart from './images/shopping-cart.png'
 import searchIcon from './images/search-icon.png'
 import './App.css'
 
+
+interface Contains {
+  contains: (target: Node) => boolean;
+}
 
 export default function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,8 +20,8 @@ export default function Navbar() {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && 'contains' in dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setShowDropdown(false);   
+    if (dropdownRef.current && 'contains' in dropdownRef.current && !(dropdownRef.current as Contains).contains(event.target as Node)) {
+      setShowDropdown(false);
     }
   };
 
@@ -61,7 +64,7 @@ export default function Navbar() {
               )}
             </div>
           </div>
-          <Link className='cart-link' to="/Cart"><img className='cart-image' src={ShoppingCart} alt="Cart" />0 ₾</Link>
+          <Link className='cart-link' to="/Cart"><img className='cart-image' src={ShoppingCart} alt="Cart" />Cart</Link>
         </li>
       </ul>
     </nav>

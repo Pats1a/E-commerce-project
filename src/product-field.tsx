@@ -40,28 +40,36 @@ function Products() {
   };
 
   return (
-    <div className='product-field'>
-      <div className='product-field-header'>
-        <div className='products-icon'>
-          <img src={productsIcon} alt="icon" />
+    <div className='product-page'>
+      <div className='product-field'>
+        <div className='product-field-header'>
+          <div className='products-icon'>
+            <img src={productsIcon} alt="icon" />
+          </div>
+          <h1>პროდუქტები</h1>
         </div>
-        <h1>პროდუქტები</h1>
-      </div>
-      <div className="all-product">
-      {item.map((product) => (
-        <div className='every-product' key={product.id}>
-          <Link to={`/products/${product.id}`} className='product-link'>
-            <img className='product-image' src={product.images[0]} alt='' />
-            <LimitedParagraph text={product.title} limit={7} />
-            <p className='product-price'>{Math.round(product.price)} ₾</p>
-            <button onClick={(e) => {e.preventDefault()}} className='product-button'>კალათაში დამატება</button>
-          </Link>
+        <div className="all-product">
+          {item.map((product) => (
+            <div className='every-product' key={product.id}>
+              <div className='product-link'>
+                <Link to={`/products/${product.id}`} className='product-link'>
+                  <img className='product-image' src={product.images[0]} alt='' />
+                  <LimitedParagraph text={product.title} limit={7} />
+                  <p className='product-price'>{Math.round(product.price)} ₾</p>
+                  <button className='product-button'>პროდუქტზე გადასვლა</button>
+                </Link>
+              </div>
+              
+            </div>
+          ))}
         </div>
-      ))}
+        <div className='show-more'>
+          <button onClick={showMoreProducts} className='show-more-button'>მეტის ნახვა <span>🡳</span></button>
+        </div>
       </div>
-      <div className='show-more'>
-        <button onClick={showMoreProducts} className='show-more-button'>მეტის ნახვა <span>🡳</span></button>
-      </div>
+      <footer className='footer'>
+        <Link to='/contact' className='contact-link'>Contact</Link>
+      </footer>
     </div>
   );
 }
