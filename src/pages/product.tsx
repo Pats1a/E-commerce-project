@@ -18,6 +18,7 @@ export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false); // New state variable for tracking if added to cart
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -41,6 +42,7 @@ export default function ProductPage() {
     const item = { id: product?.id, title: product?.title, image: product?.images[0], price: product?.price };
     cartItems.push(item);
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    setAddedToCart(true);
   };
 
 
@@ -61,7 +63,10 @@ export default function ProductPage() {
               <div className="window-info-payment">
                 <div className="window-payment">
                   <p className="window-price">{Math.round(product.price)} <span>₾</span></p>
+                  <div className='window-btn-flex'>
                   <button className="window-btn" onClick={handleAddToCart}>კალათაში დამატება</button>
+                  {addedToCart && <p className='added-to-cart'>დაემატა კალათაში <span>✓</span></p>}
+                  </div>
                 </div>
                 <div className="short-desc">
                   <p className="short-desc-text">ბრენდი: {product.brand}</p>
@@ -81,9 +86,9 @@ export default function ProductPage() {
           </button>
         </div>
       </div>
-        <footer className='footer'>
-            <Link to='/contact' className='contact-link'>Contact</Link>
-        </footer>
+      <footer className='footer'>
+        <Link to='/contact' className='contact-link'>Contact</Link>
+      </footer>
     </>
   );
 }

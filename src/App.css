@@ -283,11 +283,13 @@ body{
 }
 
 .carousel-arrow.left-arrow {
-margin-right: 210px;
+  margin-right: 210px;
+  cursor: pointer;
 }
 
 .carousel-arrow.right-arrow {
-margin-left: 210px;
+  margin-left: 210px;
+  cursor: pointer;
 }
 
 .product-field{
@@ -523,6 +525,7 @@ margin-left: 210px;
 }
 
 .window-btn{
+  font-size: 16px;
   width: 22vh;
   padding: 2vh;
   background-color: #ff5000;
@@ -531,10 +534,35 @@ margin-left: 210px;
   border: none;
   border-radius: 30px;
   transition: 0.5s;
+  cursor: pointer;
+}
+
+.window-btn-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.added-to-cart{
+  font-family: Noto-sans;
+  font-size: 15px;
+  font-weight: bolder;
+  color: rgb(0, 159, 0);
+}
+
+.added-to-cart span{
+  font-size: 22px;
 }
 
 .window-btn:hover{
   background-color: #fd9260;
+  transform: scale(1.1);
+}
+
+.window-btn:active{
+  transform: scale(0.85);
 }
 
 .window-info-text{
@@ -726,4 +754,83 @@ margin-left: 210px;
 
 .cart-item-remove:hover{
   background-color: rgb(97, 1, 1);
+}
+
+.cart-empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+}
+
+.cart-empty p {
+  font-family: Noto-sans;
+  font-size: 22px;
+  font-weight: bolder;
+  color: #0a3251;
+}
+
+.cart-empty a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #0a3251;
+  font-size: 32px;
+  font-family: Noto-sans;
+  font-weight: 350;
+  transition: 0.2s;
+}
+
+.cart-empty a:hover{
+  transform: scale(1.1);
+  border-bottom: 1px solid black;
+}
+
+.cart-empty a:active{
+  transform: scale(0.85);
+}
+
+.cart-empty img{
+  width: 5vh;
+}
+
+.cart-paying{
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-paying-total{
+  display: flex;
+  gap: 5px;
+  font-family: Noto-sans;
+}
+
+.cart-paying-total span{
+  color: #ff5000;
+}
+
+.cart-paying-button{
+  font-family: Noto-sans;
+  font-weight: bolder;
+  font-size: 18px;
+  padding: 15px 100px;
+  background-color: #ff5000;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.cart-paying-button:hover{
+  background-color: #fd9260;
+  transform: scale(1.1);
+}
+
+.cart-paying-button:active {
+  transform: scale(0.85);
 }
