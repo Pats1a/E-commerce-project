@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/cart" element={<ShoppingCart />} />
+      <Route path="/Cart" element={<ShoppingCart />} />
       <Route path="/products/:id" element={<ProductPage />} />
       <Route path="/contact" element={<ContactPage />} />
     </Routes>

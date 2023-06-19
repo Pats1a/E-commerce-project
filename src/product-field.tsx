@@ -25,7 +25,7 @@ const LimitedParagraph: React.FC<LimitedParagraphProps> = ({ text, limit }) => {
 function Products() {
   const [item, setData] = useState<Products[]>([]);
   const [currentpage, setCurrentPage] = useState(45);
-  const pagenumb = 7;
+  const pagenumb = 1;
 
   useEffect(() => {
     ProductsApi(pagenumb, currentpage)
@@ -33,7 +33,7 @@ function Products() {
   }, [currentpage]);
 
   const showMoreProducts = () => {
-    const newCurrentPage = currentpage + 10;
+    const newCurrentPage = currentpage + 25;
     ProductsApi(pagenumb, newCurrentPage)
       .then((response) => setData(response.data.products));
     setCurrentPage(newCurrentPage);
