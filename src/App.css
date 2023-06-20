@@ -302,6 +302,7 @@ body{
 .product-field-header{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 20px;
   align-items: center;
   width: 100%;
@@ -315,7 +316,11 @@ body{
 }
 
 .products-icon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: white;
+  padding: 5px;
   border-radius: 8px;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.292);
 }
@@ -384,6 +389,7 @@ body{
 
 .product-button:hover{
   background-color: #ff915e;
+  transform: scale(1.1);
 }
 
 .show-more{
@@ -833,4 +839,47 @@ body{
 
 .cart-paying-button:active {
   transform: scale(0.85);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20%;
+  left: 75px;
+}
+
+.back-to-top-button{
+  padding: 10px;
+  font-size: 18px;
+  background-color: #ff5000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.back-to-top-button:hover{
+  transform: scale(1.2);
+}
+
+.back-to-top-button:active{
+  transform: scale(0.70);
+}
+
+.brand-filter-select {
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.brand-filter-select:hover {
+  border-color: #aaa;
+}
+
+.brand-filter-select:focus {
+  border-color: #555;
 }

@@ -18,7 +18,7 @@ export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const [addedToCart, setAddedToCart] = useState(false); // New state variable for tracking if added to cart
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
