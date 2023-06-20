@@ -19,6 +19,7 @@ export default function ProductPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -45,17 +46,22 @@ export default function ProductPage() {
     setAddedToCart(true);
   };
 
-
   if (!product) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
       <Navbar />
       <div className="product-window">
         <div className="product-window-frame">
           <div className="product-window-image">
-            <img className="window-image" src={product.images[0]} alt="Product" />
+            <img className="window-image" src={product.images[selectedImageIndex]} alt="Product" />
+            <div className='window-tiny-images'>
+              <img className="tiny-image" src={product.images[0]} onClick={() => setSelectedImageIndex(0)} />
+              <img className="tiny-image" src={product.images[1]} onClick={() => setSelectedImageIndex(1)} />
+              <img className="tiny-image" src={product.images[2]} onClick={() => setSelectedImageIndex(2)} />
+            </div>
           </div>
           <div className="window-info">
             <div className="window-info-text">
@@ -64,8 +70,8 @@ export default function ProductPage() {
                 <div className="window-payment">
                   <p className="window-price">{Math.round(product.price)} <span>₾</span></p>
                   <div className='window-btn-flex'>
-                  <button className="window-btn" onClick={handleAddToCart}>კალათაში დამატება</button>
-                  {addedToCart && <p className='added-to-cart'>დაემატა კალათაში <span>✓</span></p>}
+                    <button className="window-btn" onClick={handleAddToCart}>კალათაში დამატება</button>
+                    {addedToCart && <p className='added-to-cart'>დაემატა კალათაში <span>✓</span></p>}
                   </div>
                 </div>
                 <div className="short-desc">

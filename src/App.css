@@ -191,6 +191,31 @@ body{
   margin-left: 10px;
 }
 
+.register-with-google{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: rgb(1, 84, 9);
+  border: none;
+  border-radius: 15px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.register-with-google:hover{
+  transform: scale(1.07);
+  background-color: rgb(0, 0, 0);
+}
+
+.register-with-google:active{
+  transform: scale(0.85);
+}
+
+.register-google-icon{
+  width: 2.5vh;
+}
+
 .cart-link{
   display: flex;
   align-items: center;
@@ -500,12 +525,40 @@ body{
 
 .product-window-image{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 17vh;
+  padding-bottom: 16vh;
   width: 30vh;
   height: 30vh;
   border: solid 1px rgb(245, 244, 244);
   border-radius: 5px;
+}
+
+.window-tiny-images{
+  display: flex;
+  flex-direction: row;
+  gap: 1vh;
+  margin-bottom: 2vh;
+}
+
+.tiny-image{
+  width: 8vh;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: #c6c6c6 1px solid;
+  border-radius: 7px;
+  padding: 0.2vh;
+}
+
+.tiny-image:hover{
+  opacity: 0.7;
+}
+
+.tiny-image:active{
+  transform: scale(0.85);
 }
 
 .window-image{
