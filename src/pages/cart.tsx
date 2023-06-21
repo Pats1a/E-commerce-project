@@ -56,7 +56,7 @@ export function ShoppingCart() {
             <img className="white-burger-menu" src={whiteBurgerMenu} alt="Burger Menu" />
             <h1>ნავიგაცია</h1>
           </div>
-          <div>
+          <div className='cart-location'>
             <h1>მთავარი 🡢 კალათა</h1>
           </div>
         </div>
