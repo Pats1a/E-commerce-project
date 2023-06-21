@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../navbar';
+import cartIcon from '../images/shopping-cart.png'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -70,8 +71,8 @@ export default function ProductPage() {
                 <div className="window-payment">
                   <p className="window-price">{Math.round(product.price)} <span>₾</span></p>
                   <div className='window-btn-flex'>
-                    <button className="window-btn" onClick={handleAddToCart}>კალათაში დამატება</button>
-                    {addedToCart && <p className='added-to-cart'>დაემატა კალათაში <span>✓</span></p>}
+                    <button className="window-btn" onClick={handleAddToCart}><span>კალათაში დამატება</span><img className='cart-responsive-icon' src={cartIcon}/></button>
+                    {addedToCart && <p className='added-to-cart'>დაემატა კალათაში<span>✓</span></p>}
                   </div>
                 </div>
                 <div className="short-desc">
