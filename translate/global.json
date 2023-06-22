@@ -27,7 +27,12 @@
       "addproduct": "Add Product",
       "checkout": "Checkout",
       "sum": "Sum: ",
-      "remove": "Remove"
+      "remove": "Remove",
+      "firstname": "First Name:",
+      "lastname":  "Last Name:",
+      "phonenum": "Phone Number:",
+      "alreadyhaveacc": "Already have account?",
+      "sendemail": "Send Email"
     },
     "ge": {
       "search": "ძიება...",
@@ -57,6 +62,11 @@
       "addproduct": "დაამატეთ პროდუქტი",
       "checkout": "შეძენა",
       "sum": "ჯამი: ",
-      "remove": "წაშლა"
+      "remove": "წაშლა",
+      "firstname": "სახელი:",
+      "lastname":  "გვარი:",
+      "phonenum": "ტელ. ნომერი:",
+      "alreadyhaveacc": "უკვე გაქვთ ანგარიში?",
+      "sendemail": "მეილის გაგზავნა"
     }
 }

@@ -952,6 +952,98 @@ body{
   font-size: 16px;
 }
 
+.registration-page {
+  display: flex;
+  flex-direction: column;
+  font-family: Noto-sans;
+  color: #0a3251;
+  align-items: center;
+  padding: 20px;
+}
+
+.register-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.register-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.register-input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-page-button {
+  background-color: #ff7b00;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.register-page-button:hover {
+  background-color: #f89f4b;
+}
+
+.register-page-button:active {
+  transform: scale(0.9);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: blue;
+}
+
+.forgot-password-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Noto-sans;
+  height: 50vh;
+}
+
+.send-email-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.forg-pass-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+
+.fpp-input-container{
+  display: flex;
+  gap: 10px;
+}
+
+.forg-pass-inp{
+  padding: 5px;
+}
+
 /*Media Queries*/
 
 @media only screen and (max-width: 1455px) {
