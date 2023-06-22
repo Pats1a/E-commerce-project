@@ -4,6 +4,7 @@ import cartIcon from '../images/shopping-cart.png'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next'
 
 interface Product {
   id: number;
@@ -21,6 +22,7 @@ export default function ProductPage() {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -71,30 +73,30 @@ export default function ProductPage() {
                 <div className="window-payment">
                   <p className="window-price">{Math.round(product.price)} <span>₾</span></p>
                   <div className='window-btn-flex'>
-                    <button className="window-btn" onClick={handleAddToCart}><span>კალათაში დამატება</span><img className='cart-responsive-icon' src={cartIcon}/></button>
-                    {addedToCart && <p className='added-to-cart'>დაემატა კალათაში<span>✓</span></p>}
+                    <button className="window-btn" onClick={handleAddToCart}><span>{t('global.addtocart')}</span><img className='cart-responsive-icon' src={cartIcon}/></button>
+                    {addedToCart && <p className='added-to-cart'>{t('global.addedtocart')}</p>}
                   </div>
                 </div>
                 <div className="short-desc">
-                  <p className="short-desc-text">ბრენდი: {product.brand}</p>
-                  <p className="short-desc-text">კატეგორია: {product.category}</p>
+                  <p className="short-desc-text">{t('global.brand')}{product.brand}</p>
+                  <p className="short-desc-text">{t('global.category')}{product.category}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <h2 className="desc-header">აღწერილობა:</h2>
+        <h2 className="desc-header">{t('global.descheader')}</h2>
         <div className="long-desc">
           <p className="long-desc-text">
             {showFullDescription ? product.description : `${product.description.slice(0, 100)}...`}
           </p>
           <button className='desc-btn' onClick={toggleDescription}>
-            {showFullDescription ? 'დაპატარავება' : 'მეტის ნახვა...'}
+            {showFullDescription ? t('global.descshowless') : t('global.descshowmore')}
           </button>
         </div>
       </div>
       <footer className='footer'>
-        <Link to='/contact' className='contact-link'>Contact</Link>
+        <Link to='/contact' className='contact-link'>{t("global.contact")}</Link>
       </footer>
     </>
   );

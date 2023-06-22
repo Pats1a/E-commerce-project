@@ -931,7 +931,7 @@ body{
   background-color: #fff;
   color: #333;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .brand-filter-select:hover {
@@ -944,6 +944,12 @@ body{
 
 .cart-responsive-icon{
   display: none;
+}
+
+.change-language{
+  padding: 5px;
+  font-family: Noto-sans;
+  font-size: 16px;
 }
 
 /*Media Queries*/
@@ -1305,6 +1311,9 @@ body{
   .added-to-cart{
     display: none;
   }
+  .contact-page-ul li{
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width: 605px){
@@ -1359,6 +1368,9 @@ body{
   .cart-added-products{
     margin-left: 50px;
   }
+  .contact-page-ul li{
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 340px){
@@ -1380,5 +1392,20 @@ body{
   }
   .cart-added-products{
     margin-left: 40px;
+  }
+  .product-window {
+    padding: 0;
+}
+.product-window-frame{
+  margin-top: 10px;
+}
+}
+
+@media only screen and (max-height: 620px){
+  .window-info-text{
+    margin-top: 10px;
+  }
+  .window-info-text h2{
+    width: 25vh;
   }
 }

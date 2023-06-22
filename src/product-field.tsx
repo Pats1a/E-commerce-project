@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import productsIcon from "./images/products-icon.png";
 import ProductsApi from './services/API';
 import { Link } from 'react-router-dom';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next'
 
 interface Product {
   id: number;
@@ -30,13 +32,24 @@ const Products: React.FC = () => {
   const [showMoreCount, setShowMoreCount] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
-
+  const { t } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(() => {
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    return storedLanguage || i18next.language;
+  });
   const brandOptions = [
     'All Products',
     'Samsung',
     'LG',
     'Sony',
   ];
+
+  const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLanguage = event.target.value;
+    i18next.changeLanguage(selectedLanguage);
+    setSelectedLanguage(selectedLanguage);
+    localStorage.setItem('selectedLanguage', selectedLanguage);
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -125,8 +138,12 @@ const Products: React.FC = () => {
         <div className='product-field-header'>
           <div className='products-icon'>
             <img src={productsIcon} alt="icon" />
-            <h1>პროდუქტები</h1>
+            <h1>{t("global.products")}</h1>
           </div>
+          <select className='change-language' value={selectedLanguage} onChange={changeLanguage}>
+            <option value="ge">GE</option>
+            <option value="en">EN</option>
+          </select>
           <div className='brand-filter'>
             <select className='brand-filter-select'
               value={selectedBrand || ''}
@@ -151,7 +168,7 @@ const Products: React.FC = () => {
                   <img className='product-image' src={product.images[0]} alt='' />
                   <LimitedParagraph text={product.title} limit={7} />
                   <p className='product-price'>{Math.round(product.price)} ₾</p>
-                  <button className='product-button'>პროდუქტზე გადასვლა</button>
+                  <button className='product-button'>{t("global.viewproduct")}</button>
                 </Link>
               </div>
             </div>
@@ -159,7 +176,7 @@ const Products: React.FC = () => {
         </div>
         <div className='show-more'>
           <button onClick={showMoreProducts} className='show-more-button' disabled={isLoading}>
-            {isLoading ? 'იტვირთება...' : 'მეტის ნახვა'} <span>🡳</span>
+          {isLoading ? t('global.loading') : t('global.showmore')} <span>🡳</span>
           </button>
         </div>
       </div>
@@ -169,7 +186,7 @@ const Products: React.FC = () => {
         </div>
       )}
       <footer className='footer'>
-        <Link to='/contact' className='contact-link'>Contact</Link>
+        <Link to='/contact' className='contact-link'>{t("global.contact")}</Link>
       </footer>
     </div>
   );
