@@ -84,6 +84,15 @@ body{
   font-weight: 900;
   cursor: pointer;
   user-select: none;
+  transition: 0.2s;
+}
+
+.user-profile:hover{
+  transform: scale(1.1);
+}
+
+.user-profile:active{
+  transform: scale(0.9);
 }
 
 .user-input{
@@ -224,6 +233,14 @@ body{
   font-weight: bolder;
   color: #0a3251;
   transition: 0.2s;
+}
+
+.cart-link:hover{
+  transform: scale(1.1);
+}
+
+.cart-link:active{
+  transform: scale(0.9);
 }
 
 .cart-link:hover{
